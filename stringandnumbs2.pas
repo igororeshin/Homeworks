@@ -5,7 +5,7 @@ end;
 
 function to_digit(c : char): integer;
 begin
-  if is_digit(c)d = true then
+  if is_digit(c) = true then
     begin
       to_digit := integer(c) - integer('0');
     end
