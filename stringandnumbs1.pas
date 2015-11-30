@@ -1,4 +1,4 @@
-function is_digit(c: char): boolean;
+function is_digit(c : char): boolean;
 begin
   is_digit := ('0' <= c) and (c <= '9');
 end;
