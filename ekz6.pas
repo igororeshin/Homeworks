@@ -1,13 +1,13 @@
-function longest_word(s, s1 : string): string;
+function longest_word(longest, current : string): string;
 begin
-  if length(s1) > length(s) then
-    result := s1
+  if length(current) > length(longest) then
+    result := current
   else
-    result := s;
+    result := longest;
 end;
 
 var f : text;
-    s, s1 : string;
+    longest, current : string;
     c : char;
 begin
   assign(f, 'file.txt');
@@ -17,16 +17,16 @@ begin
         read(f, c);
         if (c <> ' ') then
           begin
-            s1 := s1 + c;
+            current := current + c;
             if eof(f) then
-              s := longest_word(s, s1);
+              longest := longest_word(longest, current);
            end
         else
           begin
-            s := longest_word(s, s1);
-            s1 := '';
+            longest := longest_word(longest, current);
+            current := '';
           end;
       end;
   close(f);
-  write(s, ' ', length(s));
+  write(longest, ' ', length(longest));
 end.
