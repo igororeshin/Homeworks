@@ -3,21 +3,10 @@ begin
   to_digit := integer(c) - integer('0');
 end;
 
-var s1, s2, s : string;
-    a : array of integer;
-    l, d, i, k : integer;
-
+procedure column(s1, s2 : string; l, d : integer);
+var a : array of integer;
+    i, k : integer;
 begin
-  readln(s1);
-  readln(s2);
-  if length(s2) > length(s1) then
-    begin
-      s := s1;
-      s1 := s2;
-      s2 := s;
-    end;
-  l := length(s1);
-  d := length(s1) - length(s2);
   setlength(a, l+1);
   for i := l downto 1 do
     begin
@@ -45,4 +34,21 @@ begin
       k := k*10 + a[i];
     end;
   writeln(k);
+end;
+
+var s1, s2, s : string;
+    a : array of integer;
+    l, d : integer;
+begin
+  readln(s1);
+  readln(s2);
+  if length(s2) > length(s1) then
+    begin
+      s := s1;
+      s1 := s2;
+      s2 := s;
+    end;
+  l := length(s1);
+  d := length(s1) - length(s2);
+  column(s1, s2, l, d);
 end.
